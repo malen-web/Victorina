@@ -82,7 +82,7 @@ class Level1 : AppCompatActivity() {
             dialogEnd.getWindow()?.setBackgroundDrawableResource(android.R.color.transparent); // прозрачный фон диалога
 
 
-        // кнопка закрывающая диалоговое коно - начало
+        // кнопка закрывающая диалоговое окно - начало
 
                     //обрабатываем нажатие кнопки - начало
         val btnX2 = dialogEnd.findViewById<Button>(R.id.btnclose) as TextView
