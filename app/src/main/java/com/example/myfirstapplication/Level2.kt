@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
 
-class Level1 : AppCompatActivity() {
+class Level2 : AppCompatActivity() {
     var array = Array() //вызвал класс при помощи переменной
     var count = 0
 
@@ -58,7 +58,7 @@ class Level1 : AppCompatActivity() {
         val btnX = dialog.findViewById<Button>(R.id.btnclose) as TextView
         btnX.setOnClickListener {
 
-            val btnX = Intent(this@Level1, GameLevels::class.java)
+            val btnX = Intent(this@Level2, GameLevels::class.java)
             startActivity(btnX)
             finish()
         }
@@ -73,50 +73,11 @@ class Level1 : AppCompatActivity() {
 
             dialog.show() // показать диалоговое окно
 
-        //_______________________________________________________
-
-        //вызов диалогового окна в конце игры
-            val dialogEnd = Dialog(this) //создали далоговое окно
-        dialogEnd.requestWindowFeature(Window.FEATURE_NO_TITLE) // скрыли заголовок
-        dialogEnd.setCancelable(false) // окно нельзя закрыть системной кнопкой назад
-        dialogEnd.setContentView(R.layout.dialogend) // путь к макету диалогового окна
-        dialogEnd.window?.setBackgroundDrawableResource(android.R.color.transparent); // прозрачный фон диалога
-
-
-        // кнопка закрывающая диалоговое коно - начало
-
-                    //обрабатываем нажатие кнопки - начало
-        val btnX2 = dialogEnd.findViewById<Button>(R.id.btnclose) as TextView
-        btnX2.setOnClickListener {
-
-            val btnX2 = Intent(this@Level1, Level2::class.java)
-            startActivity(btnX2)
-            finish()
-        }
-                    //обрабатываем нажатие кнопки - конец
-        // кнопка закрывающая диалоговое коно - конец
-
-
-        //кнопка продожение - начало
-        val btncontinues2=dialogEnd.findViewById<Button>(R.id.btncontinue) as Button
-        btncontinues2.setOnClickListener{}
-        try {
-            val btncontinues2= Intent(this@Level1,Level2::class.java)
-            startActivity(btncontinues2)
-            finish()
-        }catch (e: Exception){
-            //кода не будет
-        }
-        //кнопка продожение - конец
-
-        //_______________________________________________________
-
-
         //кнопка назад - начало
         val btnback = findViewById<Button>(R.id.button_back) as Button
         try {
             btnback.setOnClickListener {
-                val btnback = Intent(this@Level1, GameLevels::class.java)
+                val btnback = Intent(this@Level2, GameLevels::class.java)
                 startActivity(btnback)
                 finish()
             }
@@ -217,7 +178,6 @@ class Level1 : AppCompatActivity() {
                     //если отпустил палец - крнец
                     if (count == 20) {
                         //ВЫХОД ИЗ УРОВНЯ
-                        dialogEnd.show()
                     } else {
                         val numLeft = Random.nextInt(10) // генерирунм случайное число от 0 до 9
                         img_left.setImageResource(array.images1.get(numLeft)) //достаем измасива картинку
@@ -301,7 +261,6 @@ class Level1 : AppCompatActivity() {
                     //если отпустил палец - крнец
                     if (count == 20) {
                         //ВЫХОД ИЗ УРОВНЯ
-                        dialogEnd.show()
                     } else {
                         val numLeft = Random.nextInt(10) // генерирунм случайное число от 0 до 9
                         img_left.setImageResource(array.images1.get(numLeft)) //достаем измасива картинку
@@ -324,13 +283,108 @@ class Level1 : AppCompatActivity() {
                 return true
             }
         })
+//        img_left.setOnTouchListener(object : OnTouchListener {
+//            @Override
+//            override fun onTouch(view: View?, event: MotionEvent): Boolean {
+//                if (event.action == MotionEvent.ACTION_DOWN) {
+//                img_right.isEnabled= false
+//                    if (numLeft > numRight) {
+//                        img_left.setImageResource(R.drawable.img_true)
+//                    } else {
+//                        img_left.setImageResource(R.drawable.img_false)
+//                    }
+//
+//                } else if (event.action == MotionEvent.ACTION_UP) {
+//                    //если отпустил палец-начало
+//                    if (numLeft > numRight) {
+//                        //если левая картинка больше
+//                        if (count < 20) {
+//                            count = +1
+//                        }
+//                        //закрашиваем прогресс серым цветом - начало
+//                        for (i in 0 until 20) {
+//                            val tv = findViewById<TextView>(progress[i])
+//                            tv.setBackgroundResource(R.drawable.style_points)
+//                        }
+//
+//                        //определяем правильные ответы и закрашиваем зеленым - начало
+//                        for (i in 0 until count) {
+//                            val tv = findViewById<TextView>(progress[i])
+//                            tv.setBackgroundResource(R.drawable.style_points_green)
+//                        }
+//                        //определяем правильные ответы и закрашиваем зеленым - конец
+//
+//                        //закрашиваем прогресс серым цветом - конец
+//                    } else {
+//                        //если левая картинка меньше
+//                        if (count > 0) {
+//                            if (count == 1) {
+//                                count = 0
+//                            } else {
+//                                count -= 2
+//                            }
+//                        }
+//                        //закрашиваем прогресс серым цветом - начало
+//                        for (i in 0 until 19) {
+//                            val tv = findViewById<TextView>(progress[i])
+//                            tv.setBackgroundResource(R.drawable.style_points)
+//                        }
+//
+//                        //определяем правильные ответы и закрашиваем зеленым - начало
+//                        for (i in 0 until count) {
+//                            val tv = findViewById<TextView>(progress[i])
+//                            tv.setBackgroundResource(R.drawable.style_points_green)
+//                        }
+//                        //определяем правильные ответы и закрашиваем зеленым - начало
+//                    }
+//                    //если отпустил палец-конец
+//                    if (count == 20) {
+//                        //ВЫХОД ИЗ УРОВНЯ
+//
+//                    } else {
+//                        val numLeft = Random.nextInt(10) //генерируем случайное число от 0 до 9
+////                    val img_left = findViewById<ImageView>(R.id.img_left)
+//                        img_left.setImageResource(array.images1[numLeft]) //достаем картинку из массива
+//                        img_left.startAnimation(a)
+//                        text_left.setText(array.text1[numLeft]) //достаем из массива текст
+//
+//                        var numRight = Random.nextInt(10) //генерируем случайное число от 0 до 9
+//
+//
+//                        //цикл с предусловияем равенства чисел - начало
+//                        while (numLeft == numRight) {
+//                            numRight = Random.nextInt(10)
+//                        }
+//                        //цикл с предусловияем равенства чисел - начало
+//
+////                    val img_right = findViewById<ImageView>(R.id.img_right)
+//                        img_right.setImageResource(array.images1[numRight]) //достаем картинку из массива
+//                        img_right.startAnimation(a)
+//                        text_right.setText(array.text1[numRight]) //достаем из массива текст
+//                        img_right.isEnabled = true
+//
+//                    }
+//                }
+//
+//               return true
+//            }
+//
+//            })
+//______________________________________________________________________________
+
+
+
+
+
+        //обрабатываем нажатие на левую картинку - конец
+
 
 
     }
     //системная кнопка "назад" - начало
     override fun onBackPressed() {
         try {
-        val btnsystenback = Intent(this@Level1, GameLevels::class.java)
+        val btnsystenback = Intent(this@Level2, GameLevels::class.java)
         startActivity(btnsystenback)
         finish()
         }catch (e: Exception){
