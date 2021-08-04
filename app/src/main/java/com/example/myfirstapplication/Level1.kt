@@ -93,15 +93,20 @@ class Level1 : AppCompatActivity() {
             finish()
         }
                     //обрабатываем нажатие кнопки - конец
-        // кнопка закрывающая диалоговое коно - конец
-
 
         //кнопка продожение - начало
         val btncontinues2=dialogEnd.findViewById<Button>(R.id.btncontinue) as Button
-        btncontinues2.setOnClickListener{dialog.dismiss()}
+        btncontinues2.setOnClickListener{
+            try {
+                val btncontinues2 = Intent(this,Level2::class.java)
+                startActivity(btncontinues2)
+                finish()
+
+            }catch (e: Exception){
+                //кода нета
+            }
+        }
         //кнопка продожение - конец
-
-
 
         //_______________________________________________________
 
@@ -319,102 +324,6 @@ class Level1 : AppCompatActivity() {
                 return true
             }
         })
-//        img_left.setOnTouchListener(object : OnTouchListener {
-//            @Override
-//            override fun onTouch(view: View?, event: MotionEvent): Boolean {
-//                if (event.action == MotionEvent.ACTION_DOWN) {
-//                img_right.isEnabled= false
-//                    if (numLeft > numRight) {
-//                        img_left.setImageResource(R.drawable.img_true)
-//                    } else {
-//                        img_left.setImageResource(R.drawable.img_false)
-//                    }
-//
-//                } else if (event.action == MotionEvent.ACTION_UP) {
-//                    //если отпустил палец-начало
-//                    if (numLeft > numRight) {
-//                        //если левая картинка больше
-//                        if (count < 20) {
-//                            count = +1
-//                        }
-//                        //закрашиваем прогресс серым цветом - начало
-//                        for (i in 0 until 20) {
-//                            val tv = findViewById<TextView>(progress[i])
-//                            tv.setBackgroundResource(R.drawable.style_points)
-//                        }
-//
-//                        //определяем правильные ответы и закрашиваем зеленым - начало
-//                        for (i in 0 until count) {
-//                            val tv = findViewById<TextView>(progress[i])
-//                            tv.setBackgroundResource(R.drawable.style_points_green)
-//                        }
-//                        //определяем правильные ответы и закрашиваем зеленым - конец
-//
-//                        //закрашиваем прогресс серым цветом - конец
-//                    } else {
-//                        //если левая картинка меньше
-//                        if (count > 0) {
-//                            if (count == 1) {
-//                                count = 0
-//                            } else {
-//                                count -= 2
-//                            }
-//                        }
-//                        //закрашиваем прогресс серым цветом - начало
-//                        for (i in 0 until 19) {
-//                            val tv = findViewById<TextView>(progress[i])
-//                            tv.setBackgroundResource(R.drawable.style_points)
-//                        }
-//
-//                        //определяем правильные ответы и закрашиваем зеленым - начало
-//                        for (i in 0 until count) {
-//                            val tv = findViewById<TextView>(progress[i])
-//                            tv.setBackgroundResource(R.drawable.style_points_green)
-//                        }
-//                        //определяем правильные ответы и закрашиваем зеленым - начало
-//                    }
-//                    //если отпустил палец-конец
-//                    if (count == 20) {
-//                        //ВЫХОД ИЗ УРОВНЯ
-//
-//                    } else {
-//                        val numLeft = Random.nextInt(10) //генерируем случайное число от 0 до 9
-////                    val img_left = findViewById<ImageView>(R.id.img_left)
-//                        img_left.setImageResource(array.images1[numLeft]) //достаем картинку из массива
-//                        img_left.startAnimation(a)
-//                        text_left.setText(array.text1[numLeft]) //достаем из массива текст
-//
-//                        var numRight = Random.nextInt(10) //генерируем случайное число от 0 до 9
-//
-//
-//                        //цикл с предусловияем равенства чисел - начало
-//                        while (numLeft == numRight) {
-//                            numRight = Random.nextInt(10)
-//                        }
-//                        //цикл с предусловияем равенства чисел - начало
-//
-////                    val img_right = findViewById<ImageView>(R.id.img_right)
-//                        img_right.setImageResource(array.images1[numRight]) //достаем картинку из массива
-//                        img_right.startAnimation(a)
-//                        text_right.setText(array.text1[numRight]) //достаем из массива текст
-//                        img_right.isEnabled = true
-//
-//                    }
-//                }
-//
-//               return true
-//            }
-//
-//            })
-//______________________________________________________________________________
-
-
-
-
-
-        //обрабатываем нажатие на левую картинку - конец
-
-
 
     }
     //системная кнопка "назад" - начало
