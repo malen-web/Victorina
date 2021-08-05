@@ -52,9 +52,14 @@ class Level2 : AppCompatActivity() {
             dialog.getWindow()?.setBackgroundDrawableResource(android.R.color.transparent); // прозрачный фон диалога
 
 
-        // кнопка закрывающая диалоговое коно - начало
+        //устанавливаем картинку в диалоговое окно - начало
+        var previewimg = findViewById<ImageView>(R.id.previewimg)
+        previewimg.setImageResource(R.id.previewimg)
+        //устанавливаем картинку в диалоговое окно - начало
 
-                    //обрабатываем нажатие кнопки - начало
+
+
+        //обрабатываем нажатие кнопки - начало
         val btnX = dialog.findViewById<Button>(R.id.btnclose) as TextView
         btnX.setOnClickListener {
 
