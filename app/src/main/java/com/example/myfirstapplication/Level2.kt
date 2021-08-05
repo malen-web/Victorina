@@ -54,7 +54,7 @@ class Level2 : AppCompatActivity() {
 
         //устанавливаем картинку в диалоговое окно - начало
         var previewimg = findViewById<ImageView>(R.id.previewimg)
-        previewimg.setImageResource(R.id.previewimg)
+        previewimg.setImageResource(R.id.preview)
         //устанавливаем картинку в диалоговое окно - начало
 
 
