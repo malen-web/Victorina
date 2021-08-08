@@ -45,7 +45,21 @@ class GameLevels : AppCompatActivity() {
         }
 //кнопка перехода к первому уровню - конец
 
-        
+        //кнопка перехода к второму уровню - начало
+        val buttonlevel2= findViewById<TextView>(R.id.textView2)
+        buttonlevel2.setOnClickListener {
+            try {
+                val golevel2 = Intent(this, Level2::class.java)
+                startActivity(golevel2)
+                finish()
+            }
+            catch(e: Exception){
+                //пусто
+            }
+        }
+//кнопка перехода к второму уровню - конец
+
+
 
     }
 
