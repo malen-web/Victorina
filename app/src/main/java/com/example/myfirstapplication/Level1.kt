@@ -4,6 +4,7 @@ package com.example.myfirstapplication
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
 import android.view.View.OnTouchListener
@@ -216,6 +217,15 @@ class Level1 : AppCompatActivity() {
                     //если отпустил палец - крнец
                     if (count == 20) {
                         //ВЫХОД ИЗ УРОВНЯ
+                            var save:SharedPreferences = getSharedPreferences("Save", MODE_PRIVATE)
+                        val level = save.getInt("Level", 1)
+                        if (level>1){
+                            //пусто
+                        }else{
+                            val editor: SharedPreferences.Editor = save.edit()
+                            editor.putInt("Level",2)
+                            editor.commit()
+                        }
                         dialogEnd.show()
 
                     } else {
@@ -301,6 +311,16 @@ class Level1 : AppCompatActivity() {
                     //если отпустил палец - крнец
                     if (count == 20) {
                         //ВЫХОД ИЗ УРОВНЯ
+                        var save:SharedPreferences = getSharedPreferences("Save", MODE_PRIVATE)
+                        val level = save.getInt("Level", 1)
+                        if (level>1){
+                            //пусто
+                        }else{
+                            val editor: SharedPreferences.Editor = save.edit()
+                            editor.putInt("Level",2)
+                            editor.commit()
+                        }
+
                         dialogEnd.show()
                     } else {
                         val numLeft = Random.nextInt(10) // генерирунм случайное число от 0 до 9

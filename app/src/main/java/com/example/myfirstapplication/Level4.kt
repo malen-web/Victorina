@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
 
-class Level2 : AppCompatActivity() {
+class Level4 : AppCompatActivity() {
     var array = Array() //вызвал класс при помощи переменной
     var count = 0
 
@@ -69,7 +69,7 @@ class Level2 : AppCompatActivity() {
         val btnX = dialog.findViewById<Button>(R.id.btnclose) as TextView
         btnX.setOnClickListener {
 
-            val btnX = Intent(this@Level2, GameLevels::class.java)
+            val btnX = Intent(this@Level4, GameLevels::class.java)
             startActivity(btnX)
             finish()
         }
@@ -88,7 +88,7 @@ class Level2 : AppCompatActivity() {
         val btnback = findViewById<Button>(R.id.button_back) as Button
         try {
             btnback.setOnClickListener {
-                val btnback = Intent(this@Level2, GameLevels::class.java)
+                val btnback = Intent(this@Level4, GameLevels::class.java)
                 startActivity(btnback)
                 finish()
             }
@@ -112,7 +112,7 @@ class Level2 : AppCompatActivity() {
         val btnX2 = dialogEnd.findViewById<Button>(R.id.btnclose) as TextView
         btnX2.setOnClickListener {
 
-            val btnX2 = Intent(this@Level2, GameLevels::class.java)
+            val btnX2 = Intent(this@Level4, GameLevels::class.java)
             startActivity(btnX2)
             finish()
         }
@@ -122,7 +122,7 @@ class Level2 : AppCompatActivity() {
         val btncontinues2=dialogEnd.findViewById<Button>(R.id.btncontinue) as Button
         btncontinues2.setOnClickListener{
             try {
-                val btncontinues2 = Intent(this,Level2::class.java)
+                val btncontinues2 = Intent(this,GameLevels::class.java)
                 startActivity(btncontinues2)
                 finish()
 
@@ -233,14 +233,13 @@ class Level2 : AppCompatActivity() {
                         //ВЫХОД ИЗ УРОВНЯ
                         var save: SharedPreferences = getSharedPreferences("Save", MODE_PRIVATE)
                         val level = save.getInt("Level", 1)
-                        if (level>2){
+                        if (level>4){
                             //пусто
                         }else{
                             val editor: SharedPreferences.Editor = save.edit()
-                            editor.putInt("Level",3)
+                            editor.putInt("Level",5)
                             editor.commit()
                         }
-
                         dialogEnd.show()
                     } else {
                         val numLeft = Random.nextInt(10) // генерирунм случайное число от 0 до 9
@@ -327,11 +326,11 @@ class Level2 : AppCompatActivity() {
                         //ВЫХОД ИЗ УРОВНЯ
                         var save: SharedPreferences = getSharedPreferences("Save", MODE_PRIVATE)
                         val level = save.getInt("Level", 1)
-                        if (level>2){
+                        if (level>4){
                             //пусто
                         }else{
                             val editor: SharedPreferences.Editor = save.edit()
-                            editor.putInt("Level",3)
+                            editor.putInt("Level",5)
                             editor.commit()
                         }
 
@@ -366,7 +365,7 @@ class Level2 : AppCompatActivity() {
     //системная кнопка "назад" - начало
     override fun onBackPressed() {
         try {
-        val btnsystenback = Intent(this@Level2, GameLevels::class.java)
+        val btnsystenback = Intent(this@Level4, GameLevels::class.java)
         startActivity(btnsystenback)
         finish()
         }catch (e: Exception){

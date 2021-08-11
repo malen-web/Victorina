@@ -1,5 +1,8 @@
 package com.example.myfirstapplication
 
+import android.widget.ImageView
+import java.util.ArrayList
+
 class Array {
     //массив для первого уровня - начало
     val images1= arrayOf(
@@ -42,7 +45,8 @@ class Array {
             R.drawable.twolevel_six,
             R.drawable.twolevel_seven,
             R.drawable.twolevel_eight,
-            R.drawable.twolevel_nine
+            R.drawable.twolevel_nine,
+            R.drawable.twolevel_ten
     )
 
     val text2 = arrayOf(

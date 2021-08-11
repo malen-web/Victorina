@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
 
-class Level2 : AppCompatActivity() {
+class Level3 : AppCompatActivity() {
     var array = Array() //вызвал класс при помощи переменной
     var count = 0
 
@@ -28,7 +28,7 @@ class Level2 : AppCompatActivity() {
 
         //создаем переменную Text levels- начало
         val textlevels = findViewById<TextView>(R.id.text_levels)
-        textlevels.setText(R.string.level2)
+        textlevels.setText(R.string.level3)
         //создаем переменную Text levels- конец
 
 
@@ -53,23 +53,13 @@ class Level2 : AppCompatActivity() {
             dialog.getWindow()?.setBackgroundDrawableResource(android.R.color.transparent); // прозрачный фон диалога
 
 
-        //устанавливаем картинку в диалоговое окно - начало
-        val previewimg = dialog.findViewById<View>(R.id.previewimg)as ImageView
-        previewimg.setImageResource(R.drawable.previewimgtwo)
-        //устанавливаем картинку в диалоговое окно - начало
+        // кнопка закрывающая диалоговое коно - начало
 
-        //устанавливаем описание задания  - начало
-        val textdescription = dialog.findViewById<TextView>(R.id.textdescription)
-        textdescription.setText(R.string.leveltwo)
-        //устанавливаем описание задания  - конец
-
-
-
-        //обрабатываем нажатие кнопки - начало
+                    //обрабатываем нажатие кнопки - начало
         val btnX = dialog.findViewById<Button>(R.id.btnclose) as TextView
         btnX.setOnClickListener {
 
-            val btnX = Intent(this@Level2, GameLevels::class.java)
+            val btnX = Intent(this@Level3, GameLevels::class.java)
             startActivity(btnX)
             finish()
         }
@@ -84,20 +74,7 @@ class Level2 : AppCompatActivity() {
 
             dialog.show() // показать диалоговое окно
 
-        //кнопка назад - начало
-        val btnback = findViewById<Button>(R.id.button_back) as Button
-        try {
-            btnback.setOnClickListener {
-                val btnback = Intent(this@Level2, GameLevels::class.java)
-                startActivity(btnback)
-                finish()
-            }
-        }catch (e: Exception){
-            //кода нет
-        }
-        //кнопка назад - конец
-
-                //_______________________________________________________
+        //_______________________________________________________
 
                     val dialogEnd = Dialog(this) //создали далоговое окно
             dialogEnd.requestWindowFeature(Window.FEATURE_NO_TITLE) // скрыли заголовок
@@ -112,7 +89,7 @@ class Level2 : AppCompatActivity() {
         val btnX2 = dialogEnd.findViewById<Button>(R.id.btnclose) as TextView
         btnX2.setOnClickListener {
 
-            val btnX2 = Intent(this@Level2, GameLevels::class.java)
+            val btnX2 = Intent(this@Level3, GameLevels::class.java)
             startActivity(btnX2)
             finish()
         }
@@ -122,7 +99,7 @@ class Level2 : AppCompatActivity() {
         val btncontinues2=dialogEnd.findViewById<Button>(R.id.btncontinue) as Button
         btncontinues2.setOnClickListener{
             try {
-                val btncontinues2 = Intent(this,Level2::class.java)
+                val btncontinues2 = Intent(this,Level4::class.java)
                 startActivity(btncontinues2)
                 finish()
 
@@ -131,13 +108,22 @@ class Level2 : AppCompatActivity() {
             }
         }
         //кнопка продожение - конец
+
         //_______________________________________________________
 
-        //интересный факт - начало
-        val textdescriptionEnd = dialogEnd.findViewById<TextView>(R.id.textdescriptionEnd)
-        textdescriptionEnd.setText(R.string.leveltwoend)
-        //интересный факт - конец
 
+        //кнопка назад - начало
+        val btnback = findViewById<Button>(R.id.button_back) as Button
+        try {
+            btnback.setOnClickListener {
+                val btnback = Intent(this@Level3, GameLevels::class.java)
+                startActivity(btnback)
+                finish()
+            }
+        }catch (e: Exception){
+            //кода нет
+        }
+        //кнопка назад - конец
 
         //массив дл прогресса игры- начало
         val progress = arrayOf(R.id.point1, R.id.point2, R.id.point3, R.id.point4, R.id.point5,
@@ -154,8 +140,8 @@ class Level2 : AppCompatActivity() {
 
         val numLeft = Random.nextInt(10) //генерируем случайное число от 0 до 9
         val img_left = findViewById<ImageView>(R.id.img_left)
-        img_left.setImageResource(array.images2[numLeft]) //достаем картинку из массива
-        text_left.setText(array.text2[numLeft]) //достаем из массива текст
+        img_left.setImageResource(array.images1[numLeft]) //достаем картинку из массива
+        text_left.setText(array.text1[numLeft]) //достаем из массива текст
 
         var numRight = Random.nextInt(10) //генерируем случайное число от 0 до 9
 
@@ -167,8 +153,8 @@ class Level2 : AppCompatActivity() {
         //цикл с предусловияем равенства чисел - начало
 
         val img_right = findViewById<ImageView>(R.id.img_right)
-        img_right.setImageResource(array.images2[numRight]) //достаем картинку из массива
-        text_right.setText(array.text2[numRight]) //достаем из массива текст
+        img_right.setImageResource(array.images1[numRight]) //достаем картинку из массива
+        text_right.setText(array.text1[numRight]) //достаем из массива текст
 
         //обрабатываем нажатие на левую картинку - начало
         img_left.setOnTouchListener(object : OnTouchListener {
@@ -233,20 +219,21 @@ class Level2 : AppCompatActivity() {
                         //ВЫХОД ИЗ УРОВНЯ
                         var save: SharedPreferences = getSharedPreferences("Save", MODE_PRIVATE)
                         val level = save.getInt("Level", 1)
-                        if (level>2){
+                        if (level>3){
                             //пусто
                         }else{
                             val editor: SharedPreferences.Editor = save.edit()
-                            editor.putInt("Level",3)
+                            editor.putInt("Level",4)
                             editor.commit()
                         }
 
                         dialogEnd.show()
+
                     } else {
                         val numLeft = Random.nextInt(10) // генерирунм случайное число от 0 до 9
-                        img_left.setImageResource(array.images2.get(numLeft)) //достаем измасива картинку
-                        img_left.setAnimation (a)
-                        text_left.setText(array.text2.get(numLeft)) //достаем из массива текст
+                        img_left.setImageResource(array.images1.get(numLeft)) //достаем измасива картинку
+                        img_left.setAnimation(a)
+                        text_left.setText(array.text1.get(numLeft)) //достаем из массива текст
                         numRight = Random.nextInt(10) // генерирунм случайное число от 0 до 9
 
                         //цикл с предусловием, проверяющий равенство чисел - начало
@@ -254,10 +241,10 @@ class Level2 : AppCompatActivity() {
                             numRight = Random.nextInt(10)
                         }
                         //цикл с предусловием, проверяющий равенство чисел - конец
-                        img_right.setImageResource(array.images2.get(numRight)) // достаем измасива картинку
+                        img_right.setImageResource(array.images1.get(numRight)) // достаем измасива картинку
                         img_right.setAnimation(a)
-                        text_right.setText(array.text2.get(numRight)) //достаем измасива текст
-                        img_right.isEnabled = true //включаем обратно правую картинку
+                        text_right.setText(array.text1.get(numRight)) //достаем измасива текст
+                        img_right.setEnabled(true) //включаем обратно правую картинку
                     }
                 }
                 //условие касания картинки - конец
@@ -327,20 +314,19 @@ class Level2 : AppCompatActivity() {
                         //ВЫХОД ИЗ УРОВНЯ
                         var save: SharedPreferences = getSharedPreferences("Save", MODE_PRIVATE)
                         val level = save.getInt("Level", 1)
-                        if (level>2){
+                        if (level>3){
                             //пусто
                         }else{
                             val editor: SharedPreferences.Editor = save.edit()
-                            editor.putInt("Level",3)
+                            editor.putInt("Level",4)
                             editor.commit()
                         }
-
                         dialogEnd.show()
                     } else {
                         val numLeft = Random.nextInt(10) // генерирунм случайное число от 0 до 9
-                        img_left.setImageResource(array.images2.get(numLeft)) //достаем измасива картинку
+                        img_left.setImageResource(array.images1.get(numLeft)) //достаем измасива картинку
                         img_left.setAnimation(a)
-                        text_left.setText(array.text2.get(numLeft)) //достаем из массива текст
+                        text_left.setText(array.text1.get(numLeft)) //достаем из массива текст
                         numRight = Random.nextInt(10) // генерирунм случайное число от 0 до 9
 
                         //цикл с предусловием, проверяющий равенство чисел - начало
@@ -348,9 +334,9 @@ class Level2 : AppCompatActivity() {
                             numRight = Random.nextInt(10)
                         }
                         //цикл с предусловием, проверяющий равенство чисел - конец
-                        img_right.setImageResource(array.images2.get(numRight)) // достаем измасива картинку
+                        img_right.setImageResource(array.images1.get(numRight)) // достаем измасива картинку
                         img_right.setAnimation(a)
-                        text_right.setText(array.text2.get(numRight)) //достаем измасива текст
+                        text_right.setText(array.text1.get(numRight)) //достаем измасива текст
                         img_left.isEnabled = true //включаем обратно правую картинку
                     }
                 }
@@ -358,15 +344,12 @@ class Level2 : AppCompatActivity() {
                 return true
             }
         })
-    //обрабатываем нажатие на левую картинку - конец
-
-
 
     }
     //системная кнопка "назад" - начало
     override fun onBackPressed() {
         try {
-        val btnsystenback = Intent(this@Level2, GameLevels::class.java)
+        val btnsystenback = Intent(this@Level3, GameLevels::class.java)
         startActivity(btnsystenback)
         finish()
         }catch (e: Exception){
