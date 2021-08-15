@@ -19,7 +19,7 @@
         <TextView
             android:id="@+id/btnclose"
             android:layout_width="30dp"
-            android:layout_height="29dp"
+            android:layout_height="30dp"
             android:layout_gravity="start"
             android:background="@drawable/button_stroke_black95_press_white"
             android:gravity="center"
