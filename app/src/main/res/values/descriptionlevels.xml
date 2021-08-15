@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="levelone">Выбери цифру, которая больше.\n Вопросы могу повторяться, пока вы не наберете 20 очков</string>
-    <string name="leveloneEnd">"Поздравляем, уровень пройден!\n
-        A занете ли вы ,что цыфра 7 считается самым счасливым числом. Существует 7 дней в неделе,семь континентов, 7 цветов радуги, 7 нот , 7 дней творения и многое другое.
-        Также число 7 чаще всего является любимим числом людей в мире"</string>
-    <string name="leveltwo">Выбери римскую цифру, которая больше.\n Вопросы могу повторяться, пока вы не наберете 20 очков</string>
-    <string name="leveltwoend">"Поздравляем, уровень пройден!,\n
-        А знает ли вы , что делить на ноль нельзя ?"</string>
+    <string name="levelone">Choose the number that is higher. \n Questions can be repeated until you get 20 points</string>
+    <string name="leveloneEnd">"Congratulations, level passed! \n
+        Do you mind that number 7 is considered the happiest number. There are 7 days a week, seven continents, 7 colors of the rainbow, 7 notes, 7 days of creation and much more.
+         Also, the number 7 is most often the favorite number of people in the world."</string>
+    <string name="leveltwo">Choose a Roman numeral that is larger. \n I can repeat the questions until you get 20 points</string>
+    <string name="leveltwoend">"Congratulations, level passed! \n
+       Do you know that you cannot divide by zero?"</string>
 
 </resources>

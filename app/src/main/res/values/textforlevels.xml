@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lvl1text0">Ноль</string>
-    <string name="lvl1text1">Один</string>
-    <string name="lvl1text2">Два</string>
-    <string name="lvl1text3">Три</string>
-    <string name="lvl1text4">Четыре</string>
-    <string name="lvl1text5">Пять</string>
-    <string name="lvl1text6">Шесть</string>
-    <string name="lvl1text7">Семь</string>
-    <string name="lvl1text8">Восемь</string>
-    <string name="lvl1text9">Девять</string>
+    <string name="lvl1text0">Zero</string>
+    <string name="lvl1text1">One</string>
+    <string name="lvl1text2">Two</string>
+    <string name="lvl1text3">Three</string>
+    <string name="lvl1text4">Four</string>
+    <string name="lvl1text5">Five</string>
+    <string name="lvl1text6">Six</string>
+    <string name="lvl1text7">Seven</string>
+    <string name="lvl1text8">Eight</string>
+    <string name="lvl1text9">Nine</string>
 
     <string name="lvl2text1">I</string>
     <string name="lvl2text2">II</string>
